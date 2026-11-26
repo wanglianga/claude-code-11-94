@@ -1,0 +1,138 @@
+:root {
+  --bg: #f4f6f8;
+  --panel: #ffffff;
+  --border: #d9dee5;
+  --primary: #1f5fa8;
+  --primary-dark: #174a82;
+  --danger: #b42318;
+  --warn: #b54708;
+  --ok: #067647;
+  --muted: #667085;
+  --tag-bg: #eef4fb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg);
+  color: #1d2939;
+  font-size: 14px;
+}
+
+header.topbar {
+  background: var(--primary-dark);
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+header.topbar .brand { font-weight: 700; font-size: 16px; }
+header.topbar nav { display: flex; gap: 6px; flex-wrap: wrap; }
+header.topbar nav a {
+  color: #d6e4f5;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+header.topbar nav a.router-link-active { background: rgba(255, 255, 255, 0.18); color: #fff; }
+header.topbar .spacer { flex: 1; }
+header.topbar button { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.35); }
+
+main { padding: 18px 22px; max-width: 1280px; margin: 0 auto; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+.panel h2 { margin: 0 0 12px; font-size: 16px; }
+.panel h3 { margin: 14px 0 8px; font-size: 14px; color: var(--primary-dark); }
+
+.grid { display: grid; gap: 12px; }
+.grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) { .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; } }
+
+label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+input, select, textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #fff;
+}
+textarea { min-height: 60px; resize: vertical; }
+
+button {
+  padding: 8px 14px;
+  border-radius: 7px;
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+}
+button:hover { background: var(--primary-dark); }
+button.secondary { background: #fff; color: var(--primary); }
+button.danger { background: var(--danger); border-color: var(--danger); }
+button.ghost { background: #f2f4f7; color: #344054; border-color: var(--border); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { border-bottom: 1px solid var(--border); padding: 8px 9px; text-align: left; vertical-align: top; }
+th { background: #f8fafc; color: #475467; font-weight: 600; white-space: nowrap; }
+
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: var(--tag-bg);
+  color: var(--primary-dark);
+  white-space: nowrap;
+}
+.tag.red { background: #fef3f2; color: var(--danger); }
+.tag.green { background: #ecfdf3; color: var(--ok); }
+.tag.amber { background: #fffaeb; color: var(--warn); }
+.tag.gray { background: #f2f4f7; color: #475467; }
+
+.msg { padding: 9px 12px; border-radius: 8px; margin-bottom: 12px; font-size: 13px; }
+.msg.ok { background: #ecfdf3; color: var(--ok); border: 1px solid #abefc6; }
+.msg.err { background: #fef3f2; color: var(--danger); border: 1px solid #fda29b; }
+.msg.info { background: #eff8ff; color: var(--primary-dark); border: 1px solid #b2ddff; }
+
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+.mono { font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.row.end { justify-content: flex-end; }
+.pill-list { display: flex; gap: 6px; flex-wrap: wrap; }
+.pill-list .tag { margin: 0; }
+.kv { display: grid; grid-template-columns: 110px 1fr; gap: 4px 10px; font-size: 13px; }
+.kv .k { color: var(--muted); }
+.scan-box {
+  border: 2px dashed var(--primary);
+  border-radius: 10px;
+  padding: 14px;
+  background: #f8fbff;
+}
+pre.json {
+  background: #101828;
+  color: #e4e7ec;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  overflow: auto;
+  max-height: 420px;
+}
+.login-wrap { max-width: 420px; margin: 70px auto; }
+.login-wrap .panel { padding: 26px; }
